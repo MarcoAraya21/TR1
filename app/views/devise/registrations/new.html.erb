@@ -1,0 +1,104 @@
+<div class="container"> 
+  <div class="row"> 
+    <div class="col-md-6 col-md-offset-3">
+      <div class= "jumbotron">
+        <legend><h2>Registrarte</h2></legend>
+
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
+
+          <div class= "form-group">
+            <div class="field">
+              <div>
+                <%= f.label :Nombre ,"Nombres" %>
+                <%= f.text_field :Nombre, autofocus: true, class: "form-control", placeholder: "Ingresa tus Nombres" %>
+              </div>
+            </div>
+          </div>
+
+          <div class= "form-group">
+            <div class="field">
+              <div>
+                <%= f.label :Apellido ,"Apellidos"%>
+                <%= f.text_field :Apellido, class: "form-control", placeholder: "Ingresa tus Apellidos"%>
+              </div>
+            </div>
+          </div>
+
+          <div class= "form-group">
+            <div class="field">
+              <div>
+                <%= f.label :Rut ,"RUT"%>
+                <%= f.text_field :Rut, class: "form-control", placeholder: "Ingresa tu RUT" %>
+              </div>
+            </div>
+          </div>
+
+          <div class= "form-group">
+            <div class="field">
+              <div>
+                <%= f.label :Direccion ,"Direccion"%>
+                <%= f.text_field :Direccion, class: "form-control", placeholder: "Ingresa tu dirección"%>
+              </div>
+            </div>
+          </div>
+
+          <div class= "form-group">
+            <div class="field">
+              <div>
+                <%= f.label :Telefono ,"Celular"%>
+                <%= f.text_field :Telefono , class: "form-control", placeholder: "Ingresa tu celular"%>
+              </div>
+            </div>
+          </div>
+
+          <div class= "form-group">
+            <div class="field">
+              <div>
+                <%= f.label :Fonoalt ,"Telefono alternativo"%>
+                <%= f.text_field :Fonoalt , class: "form-control", placeholder: "Ingresa tu telefono alternativo"%>
+              </div>
+            </div>
+          </div>
+
+          <div class= "form-group">
+            <div class="field">
+              <%= f.label :email %><br />
+              <%= f.email_field :email, class: "form-control", placeholder: "tucorreo@technorestore.cl" %>
+            </div>
+          </div>
+
+          <div class= "form-group">
+            <div class="field">
+              <%= f.label :Contraseña %>
+              <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> caracteres minimo)</em>
+              <% end %><br />
+              <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Ingresa tu contraseña"%>
+            </div>
+          </div>
+
+          <div class= "form-group">
+            <div class="field">
+              <%= f.label :Confirmar_Contraseña %><br />
+              <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Ingresa nuevamente tu contraseña" %>
+            </div>
+          </div>
+            
+          <td>
+            <%= f.hidden_field :usertype_id,:value => 3%>
+          </td>
+
+          <div class="actions">
+            <%= f.submit "Registrarse", class: "btn btn-primary" %>
+          </div>
+
+        <% end %>
+
+        <br/> <%= render "devise/shared/links" %>
+
+      </div>  
+    </div>  
+  </div>  
+</div>
+
