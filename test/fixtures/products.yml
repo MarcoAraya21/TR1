@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Nombre: MyString
+  Descripcion: MyText
+  Precio: 1
+  Stock: 1
+  Imagen: MyString
+  Ptype_id: 
+  Pcategory_id: 
+  Status_id: 
+  Trademark_id: 
+
+two:
+  Nombre: MyString
+  Descripcion: MyText
+  Precio: 1
+  Stock: 1
+  Imagen: MyString
+  Ptype_id: 
+  Pcategory_id: 
+  Status_id: 
+  Trademark_id: 

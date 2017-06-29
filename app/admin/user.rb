@@ -8,22 +8,24 @@ ActiveAdmin.register User do
     column :current_sign_in_at
     column :sign_in_count
     column :created_at
-    column :usertype_id
+    column :usertype do |user|
+      user.usertype.Nombre
+    end
     actions
   end
 
   filter :email
   filter :current_sign_in_at
   filter :sign_in_count
+  filter :usertype_Nombre, as: :string
   filter :created_at
-  filter :usertype_Nombre_id
 
   form do |f|
-    f.inputs "Admin Details" do
+    f.inputs "Users Details" do
       f.input :email
       f.input :password
       f.input :password_confirmation
-      f.collection_select  :usertype_id,Usertype.limit(7).order(:id),:id,:Nombre
+      f.collection_select  :usertype_id,Usertype.order(:id),:id,:Nombre
     end
     f.actions
   end

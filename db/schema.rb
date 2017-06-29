@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170621193957) do
+ActiveRecord::Schema.define(version: 20170628063507) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -45,6 +45,66 @@ ActiveRecord::Schema.define(version: 20170621193957) do
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+
+  create_table "cproducts", force: :cascade do |t|
+    t.string   "Nombre"
+    t.text     "Descripcion"
+    t.string   "Imagen"
+    t.integer  "User_id"
+    t.integer  "Pcategory_id"
+    t.integer  "Status_id"
+    t.integer  "Trademark_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "cproducts", ["Pcategory_id"], name: "index_cproducts_on_Pcategory_id"
+  add_index "cproducts", ["Status_id"], name: "index_cproducts_on_Status_id"
+  add_index "cproducts", ["Trademark_id"], name: "index_cproducts_on_Trademark_id"
+  add_index "cproducts", ["User_id"], name: "index_cproducts_on_User_id"
+
+  create_table "pcategories", force: :cascade do |t|
+    t.string   "Nombre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string   "Nombre"
+    t.text     "Descripcion"
+    t.integer  "Precio"
+    t.integer  "Stock"
+    t.string   "Imagen"
+    t.integer  "Ptype_id"
+    t.integer  "Pcategory_id"
+    t.integer  "Status_id"
+    t.integer  "Trademark_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "products", ["Pcategory_id"], name: "index_products_on_Pcategory_id"
+  add_index "products", ["Ptype_id"], name: "index_products_on_Ptype_id"
+  add_index "products", ["Status_id"], name: "index_products_on_Status_id"
+  add_index "products", ["Trademark_id"], name: "index_products_on_Trademark_id"
+
+  create_table "ptypes", force: :cascade do |t|
+    t.string   "Nombre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "statuses", force: :cascade do |t|
+    t.string   "Nombre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "trademarks", force: :cascade do |t|
+    t.string   "Nombre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

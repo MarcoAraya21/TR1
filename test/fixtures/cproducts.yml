@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Nombre: MyString
+  Descripcion: MyText
+  Imagen: MyString
+  User_id: 
+  Pcategory_id: 
+  Status_id: 
+  Trademark_id: 
+
+two:
+  Nombre: MyString
+  Descripcion: MyText
+  Imagen: MyString
+  User_id: 
+  Pcategory_id: 
+  Status_id: 
+  Trademark_id: 

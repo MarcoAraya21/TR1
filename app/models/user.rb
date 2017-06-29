@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
 	belongs_to :usertype
+  has_many :cproducts
   accepts_nested_attributes_for :usertype
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

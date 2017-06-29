@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Lista De Productos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Descripcion</th>
+      <th>Precio</th>
+      <th>Stock</th>
+      <th>Imagen</th>
+      <th>Categoria</th>
+      <th>Estado</th>
+      <th>Marca</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.Nombre %></td>
+        <td><%= product.Descripcion %></td>
+        <td><%= product.Precio %></td>
+        <td><%= product.Stock %></td>
+        <td><%= image_tag product.Imagen, :alt => product.Imagen, width:150 ,heigth:20%></td>
+        <td><%= product.Pcategory.Nombre %></td>
+        <td><%= product.Status.Nombre %></td>
+        <td><%= product.Trademark.Nombre %></td>
+        <td><%= link_to 'Mostrar', product %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

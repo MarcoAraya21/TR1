@@ -1,0 +1,86 @@
+<% if user_signed_in? %> 
+<p id="notice"><%= notice %></p>
+
+  <% if current_user.usertype_id == 3%>
+  <h1>Mis Productos</h1>
+    <% if @cproducts.where(:User_id => current_user.id).count == 0%>
+      No Tiene Productos en Reparacion.
+      <%else%>   
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Descripcion</th>
+      <th>Imagen</th>
+      <th>Dueño</th>
+      <th>Rut</th>
+      <th>Categoria</th>
+      <th>Estado</th>
+      <th>Marca</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cproducts.where(:User_id => current_user.id).each do |cproduct| %>
+      <tr>
+        <td><%= cproduct.Nombre %></td>
+        <td><%= cproduct.Descripcion %></td>
+        <td><%= image_tag cproduct.Imagen, :alt => cproduct.Imagen, width:150 ,heigth:20%></td>
+        <td><%= cproduct.User.Nombre %></td>
+        <td><%= cproduct.User.Rut %></td>
+        <td><%= cproduct.Pcategory.Nombre %></td>
+        <td><%= cproduct.Status.Nombre %></td>
+        <td><%= cproduct.Trademark.Nombre %></td>
+        <td><%= link_to 'Mostrar', cproduct %></td>
+        <% if current_user.usertype_id == 2%>
+        <td><%= link_to 'Editar', edit_cproduct_path(cproduct) %></td>
+        <%end%>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<%end%><%end%><%end%>
+
+
+
+<% if current_user.usertype_id == 1%>
+<h1>CProductos</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Descripcion</th>
+      <th>Imagen</th>
+      <th>Dueño</th>
+      <th>Rut</th>
+      <th>Categoria</th>
+      <th>Estado</th>
+      <th>Marca</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cproducts.each do |cproduct| %>
+      <tr>
+        <td><%= cproduct.Nombre %></td>
+        <td><%= cproduct.Descripcion %></td>
+        <td><%= image_tag cproduct.Imagen, :alt => cproduct.Imagen,class: 'imagen_cproduct'%></td>
+        <td><%= cproduct.User.Nombre %></td>
+        <td><%= cproduct.User.Rut %></td>
+        <td><%= cproduct.Pcategory.Nombre %></td>
+        <td><%= cproduct.Status.Nombre %></td>
+        <td><%= cproduct.Trademark.Nombre %></td>
+        <td><%= link_to 'Mostrar', cproduct %></td>
+        <% if current_user.usertype_id == 2%>
+        <td><%= link_to 'Editar', edit_cproduct_path(cproduct) %></td>
+        <%end%>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to 'Nuevo Cproducto', new_cproduct_path %>
+<%end%>
