@@ -1,51 +1,53 @@
-<dev class="container">
-  <dev class="thumbnail">
-    <% if @cproduct.User.id == current_user.id %>
-    <p id="notice"><%= notice %></p>
+<% if @cproduct.User.id == current_user.id %>
+<p id="notice"><%= notice %></p>
+  <dev class="container">
+    <dev class="thumbnail">
 
-    <%= image_tag @cproduct.Imagen, :alt => @cproduct.Imagen, width:150 ,heigth:20%>
-    <p>
-      <strong>Nombre:</strong>
-      <%= @cproduct.Nombre %>
-    </p>
+      <%= image_tag @cproduct.Imagen, :alt => @cproduct.Imagen, width:150 ,heigth:20%>
+      <p>
+        <strong>Nombre:</strong>
+        <%= @cproduct.Nombre %>
+      </p>
 
-    <p>
-      <strong>Descripcion:</strong>
-      <%= @cproduct.Descripcion %>
-    </p>
+      <p>
+        <strong>Descripcion:</strong>
+        <%= @cproduct.Descripcion %>
+      </p>
 
-    <p>
-      <strong>Dueño:</strong>
-      <%= @cproduct.User.Nombre %>
-    </p>
+      <p>
+        <strong>Dueño:</strong>
+        <%= @cproduct.User.Nombre %>
+      </p>
 
-    <p>
-      <strong>Rut:</strong>
-      <%= @cproduct.User.Rut %>
-    </p>
+      <p>
+        <strong>Rut:</strong>
+        <%= @cproduct.User.Rut %>
+      </p>
 
-    <p>
-      <strong>Categoria:</strong>
-      <%= @cproduct.Pcategory.Nombre %>
-    </p>
+      <p>
+        <strong>Categoria:</strong>
+        <%= @cproduct.Pcategory.Nombre %>
+      </p>
 
-    <p>
-      <strong>Estado:</strong>
-      <%= @cproduct.Status.Nombre %>
-    </p>
+      <p>
+        <strong>Estado:</strong>
+        <%= @cproduct.Status.Nombre %>
+      </p>
 
-    <p>
-      <strong>Marca:</strong>
-      <%= @cproduct.Trademark.Nombre %>
-    </p>
-    <% if user_signed_in? %> <% if current_user.usertype_id == 2%>
-    <%= link_to 'Editar', edit_cproduct_path(@cproduct) %> | <%end%><%end%>
-    <%= link_to 'Volver', cproducts_path %>
-    <%else%>
-    Este Producto no corresponde a uno de los suyos.
-    <br>
-    <br>
-    <%= link_to 'Volver', cproducts_path %>
-    <%end%>
+      <p>
+        <strong>Marca:</strong>
+        <%= @cproduct.Trademark.Nombre %>
+      </p>
+
+      <% if user_signed_in? %> <% if current_user.usertype_id == 2%>
+        <%= link_to 'Editar', edit_cproduct_path(@cproduct), class: "btn btn-success" %> | <%end%><%end%>
+        <%= link_to 'Volver', cproducts_path , class: "btn btn-primary" %>
+      <%else%>
+        Este Producto no corresponde a uno de los suyos.
+      <br>
+      <br>
+      <%= link_to 'Volver', cproducts_path , class: "btn btn-primary" %>
+      <%end%>
+
+    </dev>
   </dev>
-</dev>
