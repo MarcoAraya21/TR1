@@ -15,10 +15,8 @@
         <% if user_signed_in? %>
           <li class="active"><a href="<%= edit_user_registration_path%>">Perfil <span class="sr-only">(current)</span></a></li>
         <% end %>
-        <li>
-        <%= link_to 'cproducts/prueba', cproducts_path %>
-        </li>
-        <li><a href="products">Productos</a></li>
+        <li><a href="<%= cproducts_path %>">Cliente Productos</a></li>
+        <li><a href="<%= products_path %>">Productos</a></li>
         <% if user_signed_in? %>
           <li><a href="cproducts">Mis Productos</a>
         </li><%end%>
