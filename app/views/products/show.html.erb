@@ -1,45 +1,49 @@
 <p id="notice"><%= notice %></p>
 
-<dev class="container">
-  <dev class="thumbnail">
+<div class="container"> 
+  <div class="row"> 
+    <div class="col-md-6 col-md-offset-3">
+      <div class= "jumbotron">
 
-    <%= image_tag @product.Imagen, :alt => @product.Imagen, class: 'img-responsive'%>
-    </br>
-    <p>
-      <strong>Nombre:</strong>
-      <%= @product.Nombre %>
-    </p>
+        <%= image_tag @product.Imagen, :alt => @product.Imagen, class: 'img-responsive'%>
+        </br>
+        <p>
+          <strong>Nombre:</strong>
+          <%= @product.Nombre %>
+        </p>
 
-    <p>
-      <strong>Descripcion:</strong>
-      <%= @product.Descripcion %>
-    </p>
+        <p>
+          <strong>Descripcion:</strong>
+          <%= @product.Descripcion %>
+        </p>
 
-    <p>
-      <strong>Precio:</strong>
-      <%= @product.Precio %>
-    </p>
+        <p>
+          <strong>Precio:</strong>
+          <%= @product.Precio %>
+        </p>
 
-    <p>
-      <strong>Stock:</strong>
-      <%= @product.Stock %>
-    </p>
+        <p>
+          <strong>Stock:</strong>
+          <%= @product.Stock %>
+        </p>
 
-    <p>
-      <strong>Categoria:</strong>
-      <%= @product.Pcategory.Nombre %>
-    </p>
+        <p>
+          <strong>Categoria:</strong>
+          <%= @product.Pcategory.Nombre %>
+        </p>
 
-    <p>
-      <strong>Estado:</strong>
-      <%= @product.Status.Nombre%>
-    </p>
+        <p>
+          <strong>Estado:</strong>
+          <%= @product.Status.Nombre%>
+        </p>
 
-    <p>
-      <strong>Marca:</strong>
-      <%= @product.Trademark.Nombre %>
-    </p>
+        <p>
+          <strong>Marca:</strong>
+          <%= @product.Trademark.Nombre %>
+        </p>
 
+      </dev>
+    </dev>
   </dev> 
 </dev>
 

@@ -1,14 +1,14 @@
-<!-- titulo  -->
-<div class="container">
-	<div class="thumbnail">
-		<h1>Nuevo Producto cliente</h1>
-	</div>
-</div>
-
 <!-- Formulario  -->
-<div class=" container">	
-	<div class="thumbnail">
-		<%= render 'form' %>	
- 	</div >
-	<%= link_to 'Volver', cproducts_path, class: "btn btn-primary" %>
-</div>
+<div class="container"> 
+  <div class="row"> 
+    <div class="col-md-6 col-md-offset-3">
+    	<legend> <h1>Nuevo Producto cliente</h1> </legend>
+      
+      <div class= "jumbotron">
+					<%= render 'form' %>
+					</br>	
+					<%= link_to 'Volver', cproducts_path, class: "btn btn-primary" %>
+ 			</div >
+    </div>
+  </div>
+</div>  

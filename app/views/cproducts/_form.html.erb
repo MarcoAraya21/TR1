@@ -13,26 +13,32 @@
 
   <div class="field">
     <%= f.label :Nombre %><br>
-    <%= f.text_field :Nombre %>
+    <%= f.text_field :Nombre, autofocus: true, class: "form-control", placeholder: "Ingresa nombre del Producto"%>
   </div>
+  </br>
   <div class="field">
     <%= f.label :Descripcion %><br>
-    <%= f.text_area :Descripcion %>
+    <%= f.text_area :Descripcion, class: "form-control", placeholder: "Ingresa descripcion del Producto" %>
   </div>
+  </br>
   <div class="field">
     <%= f.label :Imagen %><br>
-    <%= f.text_field :Imagen %>
+    <%= f.text_field :Imagen, class: "form-control", placeholder: "Ingresa imagen del Producto" %>
   </div>
+  </br>
   <div class="field">
-  <%= f.collection_select  :User_id,User.where(:usertype_id => "3").order(:id),:id,:Nombre,prompt: "Seleccione Cliente"%>
+    <%= f.collection_select  :User_id,User.where(:usertype_id => "3").order(:id),:id,:Nombre,prompt: "Seleccione Cliente" %>
   </div>
+  </br>
   <div class="field">
-  <%= f.collection_select  :Pcategory_id,Pcategory.order(:id),:id,:Nombre,prompt: "Seleccione Categoria"%>
+    <%= f.collection_select  :Pcategory_id,Pcategory.order(:id),:id,:Nombre,prompt: "Seleccione Categoria"%>
   </div>
+  </br>
   <div class="field">
-  <%= f.collection_select  :Trademark_id,Trademark.order(:id),:id,:Nombre,prompt: "Seleccione Marca"%>
+    <%= f.collection_select  :Trademark_id,Trademark.order(:id),:id,:Nombre,prompt: "Seleccione Marca"%>
   </div>
-  <%= f.hidden_field :Status_id,:value => 3%>
+    <%= f.hidden_field :Status_id,:value => 3%>
+  </br>
   <div class="actions">
     <%= f.submit %>
   </div>
