@@ -1,0 +1,9 @@
+<%if @reparation != nil %>
+<h1>New Recourse</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', recourses_path %>
+<%else%>
+<h3>Tiene que acceder desde "/reparations" </h3>
+<%end %>

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Reparation:</strong>
+  <%= @recourse.reparation %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @recourse.product %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @recourse.Fecha %>
+</p>
+
+<p>
+  <strong>Cantidad:</strong>
+  <%= @recourse.Cantidad %>
+</p>
+
+<%= link_to 'Edit', edit_recourse_path(@recourse) %> |
+<%= link_to 'Back', recourses_path %>

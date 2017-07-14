@@ -1,0 +1,31 @@
+<%= form_for(@detail) do |f| %>
+  <% if @detail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@detail.errors.count, "error") %> prohibited this detail from being saved:</h2>
+
+      <ul>
+      <% @detail.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <strong>Su numero de Venta es <b><%= @s1.id %></b></strong>
+
+  
+
+
+  <%= f.hidden_field :sale_id,:value => @s1.id%>   
+
+  <div class="field">
+    <%= f.collection_select  :product_id,Product.order(:id),:id,:Nombre_Categoria,prompt: "Seleccione Producto"%>
+  </div>
+  <div class="field">
+    <%= f.label :Cantidad %><br>
+    <%= f.number_field :Cantidad%>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

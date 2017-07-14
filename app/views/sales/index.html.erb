@@ -1,0 +1,44 @@
+<% if user_signed_in? %> 
+
+<p id="notice"><%= notice %></p>
+
+  <% if current_user.usertype_id == 1%>
+<h1>Listado de ventas del dia</h1>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>N° Venta</th>
+      <th>Vendedor</th>
+      <th>Rut</th>
+      <th>Fecha</th>
+      <th>Total</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sales.where(created_at: (Time.now.midnight)..Time.now.midnight+1.day).each do |sale| %>
+      <tr>
+        <td><%= sale.id %></td>
+        <td><%= sale.user.Nombre %> <%= sale.user.Apellido %></td>
+        <td><%= sale.user.Rut %></td>
+        <td><%= sale.created_at.strftime("%d/%m/%Y %H:%M") %></td>
+        <td><%= sale.Total %></td>
+        <td><%= link_to 'Mostrar', sale %></td>
+        <!--<td><%= link_to 'Destroy', sale, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+
+<%= link_to 'Nueva Venta', new_sale_path %>
+<br>
+<%= link_to 'Agregar Producto', details_path %>
+
+<% end %>
+<% else %>
+ <h1> No Tienes los permisos para ingresar.</h1>
+ <b>Favor de contactar al administrador.</b>
+ <% end %>

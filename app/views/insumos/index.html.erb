@@ -1,0 +1,42 @@
+<%if current_user.usertype_id == 2 %>
+<p id="notice"><%= notice %></p>
+
+<div class="container"> 
+  <div class="row"> 
+      <div class="col-md-6 col-md-offset-3">
+        <h1>Insumos</h1>
+      </div>
+  </div>
+</div>
+</br>
+</br>
+</br>
+
+    <% @insumos.each do |product| %>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="thumbnail">
+            <%= image_tag product.Imagen, :alt => product.Imagen, class: 'img-responsive' %>
+            <br>
+            <p> <strong> Nombre: </strong><%= product.Nombre %> </p>
+            <p> <strong> Descripción: </strong><%= product.Descripcion %> </p>
+            <p> <strong> Precio: </strong><%= product.Precio %> </p>
+            <p> <strong> Stock: </strong><%= product.Stock %> </p>
+            <p> <strong> Categoria: </strong><%= product.Pcategory.Nombre %> </p>
+            <p> <strong> Estado: </strong><%= product.Status.Nombre %> </p>
+            <p> <strong> Marca: </strong><%= product.Trademark.Nombre %> </p>
+
+            <div class="buttons" style= "margin-top: 10px; margin-bottom: 10px">
+              <%= link_to 'Mostrar', product, class: 'btn btn-primary' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <% end %>
+    <%else%>
+<h1>No tiene permisos para entrar a esta sección.</h1>
+<h2>Favor Contactar al administrador.</h2>
+<%end%>

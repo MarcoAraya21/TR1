@@ -46,5 +46,8 @@
     </dev>
   </dev> 
 </dev>
-
+<%if @product.Ptype.id == 1 %>
 <%= link_to 'Volver', products_path , class: "btn btn-primary" %>
+<%else%>
+<%= link_to 'Volver', insumos_path , class: "btn btn-primary" %>
+<% end %>

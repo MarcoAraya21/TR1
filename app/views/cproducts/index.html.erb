@@ -34,9 +34,6 @@
 
             <div class="buttons" style= "margin-top: 10px; margin-bottom: 10px">
             <%= link_to 'Mostrar', cproduct %></td>
-            <% if current_user.usertype_id == 2%>
-              <%= link_to 'Editar', edit_cproduct_path(cproduct) %></td>
-            <%end%>
             </div>
 
           </div>
@@ -51,7 +48,7 @@
 
 
 
-<% if current_user.usertype_id == 1%>
+<% if current_user.usertype_id == 2%>
 
   <div class="container"> 
     <div class="row"> 
@@ -91,6 +88,7 @@
             <div class="buttons" style= "margin-top: 10px; margin-bottom: 10px">
               <% if current_user.usertype_id == 2%>
                 <%= link_to 'Editar', edit_cproduct_path(cproduct), class: "btn btn-success" %>
+               
               <%end%>
             </div>
 

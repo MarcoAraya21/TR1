@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  cproduct_id: 
+  Descripcion: MyText
+  FechaI: 2017-07-12 22:39:21
+  FechaF: 2017-07-12 22:39:21
+  PrecioBase: 1
+  PrecioFinal: 1
+  Llamada: false
+
+two:
+  user_id: 
+  cproduct_id: 
+  Descripcion: MyText
+  FechaI: 2017-07-12 22:39:21
+  FechaF: 2017-07-12 22:39:21
+  PrecioBase: 1
+  PrecioFinal: 1
+  Llamada: false

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170628063507) do
+ActiveRecord::Schema.define(version: 20170714023122) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -63,6 +63,17 @@ ActiveRecord::Schema.define(version: 20170628063507) do
   add_index "cproducts", ["Trademark_id"], name: "index_cproducts_on_Trademark_id"
   add_index "cproducts", ["User_id"], name: "index_cproducts_on_User_id"
 
+  create_table "details", force: :cascade do |t|
+    t.integer  "sale_id"
+    t.integer  "product_id"
+    t.integer  "Cantidad"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "details", ["product_id"], name: "index_details_on_product_id"
+  add_index "details", ["sale_id"], name: "index_details_on_sale_id"
+
   create_table "pcategories", force: :cascade do |t|
     t.string   "Nombre"
     t.datetime "created_at", null: false
@@ -93,6 +104,43 @@ ActiveRecord::Schema.define(version: 20170628063507) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "recourses", force: :cascade do |t|
+    t.integer  "reparation_id"
+    t.integer  "product_id"
+    t.datetime "Fecha"
+    t.integer  "Cantidad"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "recourses", ["product_id"], name: "index_recourses_on_product_id"
+  add_index "recourses", ["reparation_id"], name: "index_recourses_on_reparation_id"
+
+  create_table "reparations", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "cproduct_id"
+    t.text     "Descripcion"
+    t.datetime "FechaI"
+    t.datetime "FechaF"
+    t.integer  "PrecioBase"
+    t.integer  "PrecioFinal"
+    t.boolean  "Llamada"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "reparations", ["cproduct_id"], name: "index_reparations_on_cproduct_id"
+  add_index "reparations", ["user_id"], name: "index_reparations_on_user_id"
+
+  create_table "sales", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "Total"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "sales", ["user_id"], name: "index_sales_on_user_id"
 
   create_table "statuses", force: :cascade do |t|
     t.string   "Nombre"

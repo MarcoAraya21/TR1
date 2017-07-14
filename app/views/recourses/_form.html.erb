@@ -1,0 +1,25 @@
+<%= form_for(@recourse) do |f| %>
+  <% if @recourse.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@recourse.errors.count, "error") %> prohibited this recourse from being saved:</h2>
+
+      <ul>
+      <% @recourse.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.hidden_field :reparation_id,:value => @reparation%>
+  <%= f.hidden_field :Fecha,:value => Time.now%>
+  <div class="field">
+  <%= f.collection_select  :product_id,Product.where(:Ptype => 2).order(:id),:id,:Nombre,prompt: "Seleccione Tipo"%>
+  </div>
+  <div class="field">
+    <%= f.label :Cantidad %><br>
+    <%= f.number_field :Cantidad %>
+  </div>
+     <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

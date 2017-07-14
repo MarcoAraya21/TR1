@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Recourses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>N° Reparation</th>
+      <th>Insumo</th>
+      <th>Fecha</th>
+      <th>Cantidad</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @recourses.each do |recourse| %>
+      <tr>
+        <td><%= recourse.reparation.id %></td>
+        <td><%= recourse.product.Nombre %></td>
+        <td><%= recourse.Fecha %></td>
+        <td><%= recourse.Cantidad %></td>
+        <td><%= link_to 'Show', recourse %></td>
+        <td><%= link_to 'Edit', edit_recourse_path(recourse) %></td>
+        <td><%= link_to 'Destroy', recourse, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Recourse', new_recourse_path %>

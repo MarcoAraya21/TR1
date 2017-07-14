@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
+  resources :recourses
+  resources :reparations
+  resources :details
+  resources :sales
   resources :cproducts
   resources :products
   resources :trademarks
   resources :pcategories
+  resources :insumos
   devise_for :users, controllers: {
         sessions: 'users/sessions',
         registrations: 'users/registrations'

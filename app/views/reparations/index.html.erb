@@ -1,0 +1,45 @@
+<%if current_user.usertype_id == 1 or current_user.usertype_id == 2 %>
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Reparations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tecnico</th>
+      <th>ProductoC</th>
+      <th>Descripcion</th>
+      <th>Fecha Inicio</th>
+      <th>Fecha Termino</th>
+      <th>Precio Base</th>
+      <th>Precio Final</th>
+      <th>Llamada</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reparations.each do |reparation| %>
+      <tr>
+        <td><%= reparation.user.Nombre %></td>
+        <td><%= reparation.cproduct.Nombre %></td>
+        <td><%= reparation.Descripcion %></td>
+        <td><%= reparation.FechaI %></td>
+        <td><%= reparation.FechaF %></td>
+        <td><%= reparation.PrecioBase %></td>
+        <td><%= reparation.PrecioFinal %></td>
+        <td><%= reparation.Llamada %></td>
+        <td><%= link_to 'Mostrar', reparation %></td>
+        <td><%= link_to 'Editar', edit_reparation_path(reparation) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nueva Reparación', new_reparation_path %>
+<%else%>
+<h1>No tiene permisos para estar aca.</h1>
+<h2>Favor Contactar con el administrador.</h2>
+<%end%>

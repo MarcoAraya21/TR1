@@ -1,0 +1,2 @@
+module RecoursesHelper
+end
