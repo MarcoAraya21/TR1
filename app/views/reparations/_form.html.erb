@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-
+ 
   <%= f.hidden_field :FechaI,:value => Time.now%>
   <%= f.hidden_field :Llamada,:value => 0%>   
   <div class="field">
@@ -21,14 +21,15 @@
       </div>
   <div class="field">
     <%= f.label :Descripcion %><br>
-    <%= f.text_area :Descripcion %>
+    <%= f.text_area :Descripcion, class: "form-control"%>
   </div>
 
   <div class="field">
     <%= f.label :PrecioBase %><br>
-    <%= f.number_field :PrecioBase%>
+    <%= f.number_field :PrecioBase, class: "form-control"%>
   </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Crear", class: "btn btn-success" %>
   </div>
 <% end %>

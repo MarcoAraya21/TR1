@@ -11,7 +11,7 @@
     </div>
   <% end %>
   <div class="field">
-  <%= f.collection_select  :Status_id,Status.order(:id),:id,:Nombre,prompt: "Seleccione Cliente"%>
+  <%= f.collection_select  :Status_id,Status.offset(2).order(:id),:id,:Nombre,prompt: "Seleccione Cliente"%>
   </div>
 
   <div class="actions">

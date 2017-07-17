@@ -1,25 +1,36 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Vendedor:</strong>
-  <%= @sale.user.Nombre %>
-  <%= @sale.user.Apellido %>
-</p>
-<p>
-  <strong>Rut:</strong>
-  <%= @sale.user.Rut %>
-</p>
+<div class="container"> 
+  <div class="row"> 
+    <div class="col-md-6 col-md-offset-3">
+      <div class= "jumbotron">
+        <p>
+          <strong>Vendedor:</strong>
+          <%= @sale.user.Nombre %>
+          <%= @sale.user.Apellido %>
+        </p>
+        <p>
+          <strong>Rut:</strong>
+          <%= @sale.user.Rut %>
+        </p>
 
-<ul>
-	<% @sale.Details.each do |item| %>
-	<li>Nombre del producto : <%= item.product.Nombre %> </li>
-	<li>Precio Unitario : <%= item.product.Precio %> </li>
-  <li>Cantidad : <%= item.Cantidad %> </li>
-<% end %>
-</ul>
-<p>
-  <strong>Total:</strong>
-  <%= @sale.Total %>
-</p>
-<%= link_to 'Edit', edit_sale_path(@sale) %> |
-<%= link_to 'Back', sales_path %>
+        <ul>
+        	<% @sale.Details.each do |item| %>
+        	<li>Nombre del producto : <%= item.product.Nombre %> </li>
+        	<li>Precio Unitario : <%= item.product.Precio %> </li>
+          <li>Cantidad : <%= item.Cantidad %> </li>
+        <% end %>
+        </ul>
+        <p>
+          <strong>Total:</strong>
+          <%= @sale.Total %>
+        </p>
+        <br>
+        <br>
+        <!-- el vendedor no puede editar  -->
+        <!-- <%= link_to 'Editar', edit_sale_path(@sale) , class: 'btn btn-primary' %> |-->
+        <%= link_to 'Volver', sales_path , class: 'btn btn-primary'%>
+      </div>
+    </div>
+  </div>
+</div>

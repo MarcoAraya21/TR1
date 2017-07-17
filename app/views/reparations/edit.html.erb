@@ -1,6 +1,15 @@
-<h1>Editing Reparation</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Mostrar', @reparation %> |
-<%= link_to 'Volver', reparations_path %>
+<!-- Formulario  -->
+<div class="container"> 
+  <div class="row"> 
+    <div class="col-md-6 col-md-offset-3">
+    	<legend> <h1>Editar Reparación</h1> </legend>
+      
+      <div class= "jumbotron">
+					<%= render 'form' %>
+					</br>	
+					<%= link_to 'Mostrar', @reparation , class: 'btn btn-primary'%> |
+					<%= link_to 'Volver', reparations_path, class: 'btn btn-primary' %>
+ 			</div >
+    </div>
+  </div>
+</div>  

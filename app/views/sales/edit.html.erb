@@ -1,6 +1,15 @@
-<h1>Editing Sale</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @sale %> |
-<%= link_to 'Back', sales_path %>
+<!-- Formulario  -->
+<div class="container"> 
+  <div class="row"> 
+    <div class="col-md-6 col-md-offset-3">
+    	<legend> <h1>Editar Ventas</h1> </legend>
+      
+      <div class= "jumbotron">
+					<%= render 'form' %>
+					</br>
+					<%= link_to 'Mostrar', @sale , class: 'btn btn-primary'%> |
+					<%= link_to 'Volver', sale_path, class: 'btn btn-primary' %>	
+ 			</div >
+    </div>
+  </div>
+</div>  

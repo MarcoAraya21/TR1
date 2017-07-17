@@ -1,13 +1,15 @@
-<div class=" container">
-	<div class="thumbnail">
-		<h1>Editar Productos Cliente</h1>
-	</div>
-</div>
-
-<div class=" container">
-	<div class="thumbnail">
-		<%= render 'form2' %>
-	</div>
-	<%= link_to 'Mostrar', @product , class: 'btn btn-primary'%> |
-	<%= link_to 'Volver', cproducts_path, class: 'btn btn-primary' %>
-</div>
+<!-- Formulario  -->
+<div class="container"> 
+  <div class="row"> 
+    <div class="col-md-6 col-md-offset-3">
+    	<legend> <h1>Editar Productos Cliente</h1> </legend>
+      
+      <div class= "jumbotron">
+					<%= render 'form2' %>
+					</br>
+					<%= link_to 'Mostrar', @cproduct , class: 'btn btn-primary'%> |
+					<%= link_to 'Volver', cproducts_path, class: 'btn btn-primary' %>	
+ 			</div >
+    </div>
+  </div>
+</div>  

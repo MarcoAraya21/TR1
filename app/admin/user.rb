@@ -1,5 +1,5 @@
 ActiveAdmin.register User do
-  permit_params :email, :password, :password_confirmation, :usertype_id
+  permit_params :email, :password, :password_confirmation, :usertype_id, :Nombre
 
   index do
     selectable_column
@@ -23,8 +23,7 @@ ActiveAdmin.register User do
   form do |f|
     f.inputs "Users Details" do
       f.input :email
-      f.input :password
-      f.input :password_confirmation
+      f.input :Nombre
       f.collection_select  :usertype_id,Usertype.order(:id),:id,:Nombre
     end
     f.actions

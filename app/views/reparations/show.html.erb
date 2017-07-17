@@ -1,50 +1,60 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Tecnico:</strong>
-  <%= @reparation.user.Nombre %>
-</p>
+<div class="container">
+  <div class="row">
+    <div class="jumbotron">
+      <p>
+        <strong>Tecnico:</strong>
+        <%= @reparation.user.Nombre %>
+      </p>
 
-<p>
-  <strong>Producto C:</strong>
-  <%= @reparation.cproduct.Nombre %>
-</p>
+      <p>
+        <strong>Producto C:</strong>
+        <%= @reparation.cproduct.Nombre %>
+      </p>
 
-<p>
-  <strong>Descripcion:</strong>
-  <%= @reparation.Descripcion %>
-</p>
+      <p>
+        <strong>Descripcion:</strong>
+        <%= @reparation.Descripcion %>
+      </p>
 
-<p>
-  <strong>Fecha Inicio:</strong>
-  <%= @reparation.FechaI.strftime("%d/%m/%Y %H:%M") %>
-</p>
+      <p>
+        <strong>Fecha Inicio:</strong>
+        <%= @reparation.FechaI.strftime("%d/%m/%Y %H:%M") %>
+      </p>
 
-<p>
-  <strong>Fecha Termino:</strong>
-  <%= @reparation.FechaF %>
-</p>
+      <p>
+        <strong>Fecha Termino:</strong>
+        <%= @reparation.FechaF %>
+      </p>
 
-<p>
-  <strong>Precio Base:</strong>
-  <%= @reparation.PrecioBase %>
-</p>
+      <p>
+        <strong>Precio Base:</strong>
+        <%= @reparation.PrecioBase %>
+      </p>
 
-<p>
-  <strong>Precio Final:</strong>
-  <%= @reparation.PrecioFinal %>
-</p>
+      <p>
+        <strong>Precio Final:</strong>
+        <%= @reparation.PrecioFinal %>
+      </p>
 
-<p>
-  <strong>Llamada:</strong>
-  <%if @reparation.Llamada == false%>
-  La llamada aun no se ha realizado
-  <%else%>
-  La llamada ya se realizo.
-  <%end%>
-</p>
+      <p>
+        <strong>Llamada:</strong>
+        <%if @reparation.Llamada == false%>
+        La llamada aun no se ha realizado
+        <%else%>
+        La llamada ya se realizo.
+        <%end%>
+      </p>
 
-<%= link_to 'Edit', edit_reparation_path(@reparation) %> |
-<%= link_to 'Back', reparations_path %>
-<br>
-<%= link_to 'Editar', new_recourse_path(:reparation_id => @reparation.id) %>
+      </br>
+      </br>
+
+      <div class="buttons" style= "margin-top: 10px; margin-bottom: 10px">
+        <!-- <%= link_to 'Editar', edit_reparation_path(@reparation), class: "btn btn-primary" %> -->
+        <%= link_to 'Volver', reparations_path, class: "btn btn-primary" %>          
+      </div>
+      <!-- <%= link_to 'Editar', new_recourse_path(:reparation_id => @reparation.id) , class: "btn btn-primary"%> -->
+    </div>
+  </div>
+</div>

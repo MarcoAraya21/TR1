@@ -1,45 +1,63 @@
 <%if current_user.usertype_id == 1 or current_user.usertype_id == 2 %>
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Reparations</h1>
+<div class="container"> 
+  <div class="row"> 
+    <div class="col-md-6 col-md-offset-3">
+      <legend> <h1>Listado de Reparaciones</h1> </legend>
+    </div>
+  </div>
+</div>
+</br>
 
-<table>
-  <thead>
-    <tr>
-      <th>Tecnico</th>
-      <th>ProductoC</th>
-      <th>Descripcion</th>
-      <th>Fecha Inicio</th>
-      <th>Fecha Termino</th>
-      <th>Precio Base</th>
-      <th>Precio Final</th>
-      <th>Llamada</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+ <div class="container"> 
+  <div class="row"> 
+    <div class="col-md-6 col-md-offset-3">
+      <%= link_to 'Nueva Reparación', new_reparation_path, class: "btn btn-success" %>
+      <%else%>
+        <h1>No tiene permisos para estar aca.</h1>
+        <h2>Favor Contactar con el administrador.</h2>
+      <%end%>
+    </div>
+  </div>
+</div>
+</br>
+</br>
 
-  <tbody>
+
+
     <% @reparations.each do |reparation| %>
-      <tr>
-        <td><%= reparation.user.Nombre %></td>
-        <td><%= reparation.cproduct.Nombre %></td>
-        <td><%= reparation.Descripcion %></td>
-        <td><%= reparation.FechaI %></td>
-        <td><%= reparation.FechaF %></td>
-        <td><%= reparation.PrecioBase %></td>
-        <td><%= reparation.PrecioFinal %></td>
-        <td><%= reparation.Llamada %></td>
-        <td><%= link_to 'Mostrar', reparation %></td>
-        <td><%= link_to 'Editar', edit_reparation_path(reparation) %></td>
-      </tr>
+    <div class="container"> 
+      <div class="row"> 
+        <div class="col-md-4">
+          <div class= "thumbnail">
+          
+            <p> <strong> Nombre Tecnico: </strong>  <%= reparation.user.Nombre %> </p>
+            <p> <strong> Nombre producto cliente: </strong> <%= reparation.cproduct.Nombre %> </p>
+            <p> <strong> Descripcion: </strong> <%= reparation.Descripcion %> </p>
+            <p> <strong> Fecha de Ingreso: </strong>  <%= reparation.FechaI %> </p>
+            <p> <strong> Fecha de Salida: </strong> <%= reparation.FechaF %></p>
+            <p> <strong> Precio Base: </strong> <%= reparation.PrecioBase %> </p>
+            <p> <strong> Precio Final:  </strong> <%= reparation.PrecioFinal %></p>
+            <p> <strong> llamada:  </strong>
+              <%if reparation.Llamada == false%>
+                La llamada aun no se ha realizado
+                <%else%>
+                La llamada ya se realizo.
+              <%end%> 
+            </p>
+
+
+            <div class="buttons" style= "margin-top: 10px; margin-bottom: 10px">
+              <%= link_to 'Mostrar', reparation, class: "btn btn-primary" %>
+              <!--<%= link_to 'Editar', edit_reparation_path(reparation), class: "btn btn-primary" %>-->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    
     <% end %>
-  </tbody>
-</table>
 
 <br>
-
-<%= link_to 'Nueva Reparación', new_reparation_path %>
-<%else%>
-<h1>No tiene permisos para estar aca.</h1>
-<h2>Favor Contactar con el administrador.</h2>
-<%end%>

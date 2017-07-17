@@ -2,43 +2,58 @@
 
 <p id="notice"><%= notice %></p>
 
-  <% if current_user.usertype_id == 1%>
-<h1>Listado de ventas del dia</h1>
+<% if current_user.usertype_id == 1%>
 
-<table border="1">
-  <thead>
-    <tr>
-      <th>N° Venta</th>
-      <th>Vendedor</th>
-      <th>Rut</th>
-      <th>Fecha</th>
-      <th>Total</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <!-- Formulario  -->
+  <div class="container"> 
+    <div class="row"> 
+      <div class="col-md-6 col-md-offset-3">
+        <legend> <h1>Listado ventas del dia</h1> </legend>
 
-  <tbody>
-    <% @sales.where(created_at: (Time.now.midnight)..Time.now.midnight+1.day).each do |sale| %>
+        </br> 
+        <%= link_to 'Nueva Venta', new_sale_path, class: "btn btn-success" %> | 
+        <%= link_to 'Agregar Producto', details_path, class: "btn btn-success" %>
+      </div>
+    </div>
+  </div>  
+  
+  <br>
+  <br>
+
+  <!-- Formulario Tabla de venta  -->
+  <table class="table table-striped table-hover ">
+    <thead>
       <tr>
-        <td><%= sale.id %></td>
-        <td><%= sale.user.Nombre %> <%= sale.user.Apellido %></td>
-        <td><%= sale.user.Rut %></td>
-        <td><%= sale.created_at.strftime("%d/%m/%Y %H:%M") %></td>
-        <td><%= sale.Total %></td>
-        <td><%= link_to 'Mostrar', sale %></td>
-        <!--<td><%= link_to 'Destroy', sale, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+        <th>N° Venta</th>
+        <th>Vendedor</th>
+        <th>Rut</th>
+        <th>Fecha</th>
+        <th>Total</th>
+        <th>Mostrar</th>
       </tr>
+    </thead>
+    <!-- Mostrando Tabla de venta  -->
+    <tbody>
+      <% @sales.where(created_at: (Time.now.midnight)..Time.now.midnight+1.day).each do |sale| %>
+        <thead>
+          <tr>
+            <td><%= sale.id %></td>
+            <td><%= sale.user.Nombre %> <%= sale.user.Apellido %></td>
+            <td><%= sale.user.Rut %></td>
+            <td><%= sale.created_at.strftime("%d/%m/%Y %H:%M") %></td>
+            <td><%= sale.Total %></td>
+            <td><%= link_to 'Mostrar', sale , class: "btn btn-success"%></td>
+            <!--<td><%= link_to 'Destroy', sale, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+          <tr>
+    </tbody>
     <% end %>
-  </tbody>
-</table>
-<br>
-
-<%= link_to 'Nueva Venta', new_sale_path %>
-<br>
-<%= link_to 'Agregar Producto', details_path %>
+  </table>
+  <br>
 
 <% end %>
+
+<!-- En caso contrario  -->
 <% else %>
  <h1> No Tienes los permisos para ingresar.</h1>
  <b>Favor de contactar al administrador.</b>
- <% end %>
+<% end %>

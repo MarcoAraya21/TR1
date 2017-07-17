@@ -1,5 +1,13 @@
-<h1>Nueva Reparación</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', reparations_path %>
+<div class="container"> 
+  <div class="row"> 
+    <div class="col-md-6 col-md-offset-3">
+      <legend> <h1>Ingresar Nueva Reparación</h1> </legend>
+      
+      <div class= "jumbotron">
+          <%= render 'form' %>
+          </br> 
+          <%= link_to 'Volver', reparations_path, class: 'btn btn-primary' %>
+      </div >
+    </div>
+  </div>
+</div>  
